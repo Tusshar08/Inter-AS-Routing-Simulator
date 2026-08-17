@@ -1,0 +1,35 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Starting PartC: Policy mode = static
+At time +2s client sent 512 bytes to 192.168.3.2 port 8080
+At time +2.01181s server received 512 bytes from 192.168.1.1 port 49153
+At time +2.01181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +2.01424s client received 512 bytes from 192.168.4.2 port 8080
+At time +2.75s client sent 512 bytes to 192.168.3.2 port 8080
+At time +2.76181s server received 512 bytes from 192.168.1.1 port 49153
+At time +2.76181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +2.76424s client received 512 bytes from 192.168.4.2 port 8080
+At time +3.5s client sent 512 bytes to 192.168.3.2 port 8080
+At time +3.51181s server received 512 bytes from 192.168.1.1 port 49153
+At time +3.51181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +3.51424s client received 512 bytes from 192.168.4.2 port 8080
+At time +4.25s client sent 512 bytes to 192.168.3.2 port 8080
+At time +4.26181s server received 512 bytes from 192.168.1.1 port 49153
+At time +4.26181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +4.26424s client received 512 bytes from 192.168.4.2 port 8080
+At time +5s client sent 512 bytes to 192.168.3.2 port 8080
+At time +5.01181s server received 512 bytes from 192.168.1.1 port 49153
+At time +5.01181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +5.01424s client received 512 bytes from 192.168.4.2 port 8080
+At time +5.75s client sent 512 bytes to 192.168.3.2 port 8080
+At time +5.76181s server received 512 bytes from 192.168.1.1 port 49153
+At time +5.76181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +5.76424s client received 512 bytes from 192.168.4.2 port 8080
+At time +6.5s client sent 512 bytes to 192.168.3.2 port 8080
+At time +6.51181s server received 512 bytes from 192.168.1.1 port 49153
+At time +6.51181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +6.51424s client received 512 bytes from 192.168.4.2 port 8080
+At time +7.25s client sent 512 bytes to 192.168.3.2 port 8080
+At time +7.26181s server received 512 bytes from 192.168.1.1 port 49153
+At time +7.26181s server sent 512 bytes to 192.168.1.1 port 49153
+At time +7.26424s client received 512 bytes from 192.168.4.2 port 8080
