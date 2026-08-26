@@ -1,0 +1,19 @@
+COL724 Part D - Failure and Recovery Study
+
+BEFORE FAILURE (0-6 s)
+Packets delivered : 20
+Packets lost      : 0
+Average delay     : 2.4336 ms
+Jitter            : 0 ms
+
+DURING FAILURE (6-9 s)
+Packets delivered : 15
+Packets lost      : 0
+Average delay     : 11.8067 ms
+Jitter            : 0 ms
+
+AFTER RECOVERY (9-13 s)
+Packets delivered : 20
+Packets lost      : 0
+Average delay     : 2.4336 ms
+Jitter            : 0 ms
