@@ -192,124 +192,41 @@ int main(int argc, char *argv[])
 
   monitor->SerializeToXmlFile("interas-partD-results.xml", true, true);
 
-  // ------------------------------------------------------------
-  // BEFORE FAILURE: 0-6 s
-  // ------------------------------------------------------------
+  uint32_t rxBefore = snapshot6.rxPackets;
+  uint32_t lostBefore = snapshot6.lostPackets;
+  double delayBefore = (rxBefore > 0) ? snapshot6.delaySum.GetSeconds () / rxBefore * 1000.0 : 0.0;
+  double jitterBefore = (rxBefore > 1) ? snapshot6.jitterSum.GetSeconds () / (rxBefore - 1) * 1000.0 : 0.0;
+  uint32_t rxDuring = snapshot9.rxPackets - snapshot6.rxPackets;
+  uint32_t lostDuring = snapshot9.lostPackets - snapshot6.lostPackets;
+  double delayDuring = (rxDuring > 0) ? (snapshot9.delaySum - snapshot6.delaySum).GetSeconds () / rxDuring * 1000.0 : 0.0;
+  double jitterDuring = (rxDuring > 1) ? (snapshot9.jitterSum - snapshot6.jitterSum).GetSeconds () / (rxDuring - 1) * 1000.0 : 0.0;
 
-  uint32_t rxBefore =
-      snapshot6.rxPackets;
+  uint32_t rxAfter = snapshot13.rxPackets - snapshot9.rxPackets;
+  uint32_t lostAfter = snapshot13.lostPackets - snapshot9.lostPackets;
+  double delayAfter = (rxAfter > 0) ? (snapshot13.delaySum - snapshot9.delaySum).GetSeconds () / rxAfter * 1000.0 : 0.0;
+  double jitterAfter = (rxAfter > 1) ? (snapshot13.jitterSum - snapshot9.jitterSum).GetSeconds () / (rxAfter - 1) * 1000.0 : 0.0;
 
-  uint32_t lostBefore =
-      snapshot6.lostPackets;
-
-  double delayBefore =
-      (rxBefore > 0)
-      ? snapshot6.delaySum.GetSeconds ()
-        / rxBefore * 1000.0
-      : 0.0;
-
-  double jitterBefore =
-      (rxBefore > 1)
-      ? snapshot6.jitterSum.GetSeconds ()
-        / (rxBefore - 1) * 1000.0
-      : 0.0;
-
-
-  // ------------------------------------------------------------
-  // DURING FAILURE: 6-9 s
-  // ------------------------------------------------------------
-
-  uint32_t rxDuring =
-      snapshot9.rxPackets -
-      snapshot6.rxPackets;
-
-  uint32_t lostDuring =
-      snapshot9.lostPackets -
-      snapshot6.lostPackets;
-
-  double delayDuring =
-      (rxDuring > 0)
-      ? (snapshot9.delaySum - snapshot6.delaySum).GetSeconds ()
-        / rxDuring * 1000.0
-      : 0.0;
-
-  double jitterDuring =
-      (rxDuring > 1)
-      ? (snapshot9.jitterSum - snapshot6.jitterSum).GetSeconds ()
-        / (rxDuring - 1) * 1000.0
-      : 0.0;
-
-
-  // ------------------------------------------------------------
-  // AFTER RECOVERY: 9-13 s
-  // ------------------------------------------------------------
-
-  uint32_t rxAfter =
-      snapshot13.rxPackets -
-      snapshot9.rxPackets;
-
-  uint32_t lostAfter =
-      snapshot13.lostPackets -
-      snapshot9.lostPackets;
-
-  double delayAfter =
-      (rxAfter > 0)
-      ? (snapshot13.delaySum - snapshot9.delaySum).GetSeconds ()
-        / rxAfter * 1000.0
-      : 0.0;
-
-  double jitterAfter =
-      (rxAfter > 1)
-      ? (snapshot13.jitterSum - snapshot9.jitterSum).GetSeconds ()
-        / (rxAfter - 1) * 1000.0
-      : 0.0;
-
-
-  // ============================================================
-  // ===== NEW FOR PART D: PRINT REQUIRED RESULTS ===============
-  // ============================================================
-
-  std::cout << "\n";
-  std::cout << "============================================\n";
-  std::cout << "PART D FLOWMONITOR RESULTS\n";
-  std::cout << "============================================\n";
+  //PRINT REQUIRED RESULTS
 
   std::cout << "\nBEFORE FAILURE (0-6 s)\n";
-  std::cout << "Packets delivered : "
-            << rxBefore << "\n";
-  std::cout << "Packets lost      : "
-            << lostBefore << "\n";
-  std::cout << "Average delay     : "
-            << delayBefore << " ms\n";
-  std::cout << "Jitter            : "
-            << jitterBefore << " ms\n";
+  std::cout << "Packets delivered : " << rxBefore << "\n";
+  std::cout << "Packets lost      : " << lostBefore << "\n";
+  std::cout << "Average delay     : " << delayBefore << " ms\n";
+  std::cout << "Jitter            : " << jitterBefore << " ms\n";
 
   std::cout << "\nDURING FAILURE (6-9 s)\n";
-  std::cout << "Packets delivered : "
-            << rxDuring << "\n";
-  std::cout << "Packets lost      : "
-            << lostDuring << "\n";
-  std::cout << "Average delay     : "
-            << delayDuring << " ms\n";
-  std::cout << "Jitter            : "
-            << jitterDuring << " ms\n";
+  std::cout << "Packets delivered : " << rxDuring << "\n";
+  std::cout << "Packets lost      : " << lostDuring << "\n";
+  std::cout << "Average delay     : " << delayDuring << " ms\n";
+  std::cout << "Jitter            : " << jitterDuring << " ms\n";
 
   std::cout << "\nAFTER RECOVERY (9-13 s)\n";
-  std::cout << "Packets delivered : "
-            << rxAfter << "\n";
-  std::cout << "Packets lost      : "
-            << lostAfter << "\n";
-  std::cout << "Average delay     : "
-            << delayAfter << " ms\n";
-  std::cout << "Jitter            : "
-            << jitterAfter << " ms\n";
+  std::cout << "Packets delivered : " << rxAfter << "\n";
+  std::cout << "Packets lost      : " << lostAfter << "\n";
+  std::cout << "Average delay     : " << delayAfter << " ms\n";
+  std::cout << "Jitter            : " << jitterAfter << " ms\n";
 
-  std::cout << "============================================\n";
-
-
-  // ============================================================
-  // ===== NEW FOR PART D: SAVE GRAPH DATA =====================
-  // ============================================================
+  //SAVE GRAPH DATA
 
   std::ofstream csv ("partD-delay-plot.csv");
 
@@ -321,7 +238,7 @@ int main(int argc, char *argv[])
   csv.close ();
 
 
-  // ===== NEW FOR PART D: SAVE TEXT RESULTS ===================
+  // SAVE TEXT RESULTS
 
   std::ofstream out ("partD-interval-stats.txt");
 
