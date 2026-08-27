@@ -1,0 +1,31 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Starting PartE: Dual-path rerouting study...
+Default path observed: R1-R4-R5
+Reason: 2 hops versus 3 hops for R1-R2-R3-R5
+TIME 6 s: AS1-AS4 LINK FAILED
+Traffic should reroute via AS1-AS2-AS3-AS5
+First packet on alternate path at t=6.01181 s
+Failure convergence time = 11.8067 ms
+TIME 9 s: AS1-AS4 LINK RESTORED
+Traffic should return to AS1-AS4-AS5
+First packet on restored path at t=9.00487 s
+Recovery convergence time = 4.8672 ms
+
+Failure interval (6-9 s):
+Packets transmitted: 15
+Packets delivered: 15
+Packets lost: 0
+
+Recovery interval (9-13 s):
+Packets transmitted: 20
+Packets delivered: 20
+Packets lost: 0
+Total packets transmitted: 40
+Total packets delivered: 40
+Total packets lost: 0
+
+Failure route change: R1-R4-R5 -> R1-R2-R3-R5
+Failure convergence time: 11.8067 ms
+Recovery route change: R1-R2-R3-R5 -> R1-R4-R5
+Recovery convergence time: 4.8672 ms
